@@ -16,6 +16,8 @@
 		FA2DA7FB2AA0FC1E002B71C0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DA7FA2AA0FC1E002B71C0 /* APIService.swift */; };
 		FA2DA8002AA10970002B71C0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DA7FF2AA10970002B71C0 /* ViewModel.swift */; };
 		FA2DA8022AA11C0E002B71C0 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DA8012AA11C0E002B71C0 /* Styles.swift */; };
+		FA2DA8042AA14385002B71C0 /* FetchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DA8032AA14385002B71C0 /* FetchingView.swift */; };
+		FA2DA8062AA143FA002B71C0 /* TextFieldClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DA8052AA143FA002B71C0 /* TextFieldClearButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		FA2DA7FA2AA0FC1E002B71C0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FA2DA7FF2AA10970002B71C0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		FA2DA8012AA11C0E002B71C0 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		FA2DA8032AA14385002B71C0 /* FetchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingView.swift; sourceTree = "<group>"; };
+		FA2DA8052AA143FA002B71C0 /* TextFieldClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldClearButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		FA2DA7FC2AA107DF002B71C0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA2DA8032AA14385002B71C0 /* FetchingView.swift */,
 				FA2DA7FE2AA10800002B71C0 /* DALLE Images */,
 			);
 			path = Screens;
@@ -106,6 +111,7 @@
 			children = (
 				FA2DA7E82AA0F377002B71C0 /* DALLEImagesView.swift */,
 				FA2DA7FF2AA10970002B71C0 /* ViewModel.swift */,
+				FA2DA8052AA143FA002B71C0 /* TextFieldClearButton.swift */,
 			);
 			path = "DALLE Images";
 			sourceTree = "<group>";
@@ -182,11 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2DA8002AA10970002B71C0 /* ViewModel.swift in Sources */,
+				FA2DA8062AA143FA002B71C0 /* TextFieldClearButton.swift in Sources */,
 				FA2DA7F92AA0FB8C002B71C0 /* Models.swift in Sources */,
 				FA2DA7E92AA0F377002B71C0 /* DALLEImagesView.swift in Sources */,
 				FA2DA8022AA11C0E002B71C0 /* Styles.swift in Sources */,
 				FA2DA7FB2AA0FC1E002B71C0 /* APIService.swift in Sources */,
 				FA2DA7E72AA0F377002B71C0 /* AppEntry.swift in Sources */,
+				FA2DA8042AA14385002B71C0 /* FetchingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,8 +332,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,8 +362,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

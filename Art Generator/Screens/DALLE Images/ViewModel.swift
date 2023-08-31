@@ -19,6 +19,8 @@ class ViewModel: ObservableObject {
     @Published var imageMedium = ImageMedium.none
     @Published var artist = Artist.none
     
+    @Published var showAlert = false
+    
     var description: String {
         let characteristics = imageStyle.description + imageMedium.description + artist.description
         return prompt + (!characteristics.isEmpty ? "\n- " + characteristics : "")
@@ -68,6 +70,7 @@ class ViewModel: ObservableObject {
                 } catch {
                     print(error.localizedDescription)
                     fetching.toggle()
+                    showAlert.toggle()
                 }
             }
         }
@@ -105,3 +108,4 @@ class ViewModel: ObservableObject {
         }
     }
 }
+
