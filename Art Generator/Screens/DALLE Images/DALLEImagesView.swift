@@ -14,7 +14,7 @@ struct DALLEImagesView: View {
             VStack {
                 if !vm.urls.isEmpty {
                     HStack {
-                        ForEach(vm.dallEImages) { dalleImage in
+                        ForEach(vm.dallEImages) {dalleImage in
                             if let uiImage = dalleImage.uiImage {
                                 Image(uiImage: uiImage)
                                     .resizable()
@@ -42,18 +42,20 @@ struct DALLEImagesView: View {
                     }
                     if vm.urls.isEmpty {
                         Text("The more descriptive you can be, the better")
-                        TextField("Image Description...", text: $vm.prompt, axis: .vertical)
-                            .textFieldStyle(.roundedBorder)
-                            .padding(.horizontal)
+                        TextField("Image Description....",
+                                  text: $vm.prompt,
+                                  axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.horizontal)
                         Form {
-                            Picker("Style", selection: $vm.imageStlye) {
-                                ForEach(ImageStyle.allCases, id: \.self) { style in
-                                    Text(style.rawValue)
+                            Picker("Style", selection: $vm.imageStyle) {
+                                ForEach(ImageStyle.allCases, id: \.self) { imageStyle in
+                                    Text(imageStyle.rawValue)
                                 }
                             }
                             Picker("Image Medium", selection: $vm.imageMedium) {
-                                ForEach(ImageMedium.allCases, id: \.self) { medium in
-                                    Text(medium.rawValue)
+                                ForEach(ImageMedium.allCases, id: \.self) { imageMedium in
+                                    Text(imageMedium.rawValue)
                                 }
                             }
                             Picker("Artist", selection: $vm.artist) {
@@ -80,8 +82,15 @@ struct DALLEImagesView: View {
                     } else {
                         Text(vm.description)
                             .padding()
-                        Button("Try another") {
-                            vm.reset()
+                        HStack {
+                            if vm.selectedImage != nil {
+                                Button("Get Variation") {
+                                    vm.fetchVariations()
+                                }
+                            }
+                            Button("Try another") {
+                                vm.reset()
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                     }
@@ -95,7 +104,6 @@ struct DALLEImagesView: View {
             }
             .navigationTitle("Art Generator")
             .edgesIgnoringSafeArea(.bottom)
-            // "Mechatronic cheetah making a fortune on wall street trading floor
         }
     }
 }

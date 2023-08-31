@@ -15,12 +15,12 @@ class ViewModel: ObservableObject {
     @Published var fetching = false
     @Published var selectedImage: UIImage?
     
-    @Published var imageStlye = ImageStyle.none
+    @Published var imageStyle = ImageStyle.none
     @Published var imageMedium = ImageMedium.none
     @Published var artist = Artist.none
     
     var description: String {
-        let characteristics = imageStlye.description + imageMedium.description + artist.description
+        let characteristics = imageStyle.description + imageMedium.description + artist.description
         return prompt + (!characteristics.isEmpty ? "\n- " + characteristics : "")
     }
     
@@ -37,7 +37,7 @@ class ViewModel: ObservableObject {
     
     func reset() {
         clearProperties()
-        imageStlye = .none
+        imageStyle = .none
         imageMedium = .none
         artist = .none
     }
@@ -51,11 +51,43 @@ class ViewModel: ObservableObject {
         withAnimation {
             fetching.toggle()
         }
-        let generationInput = GenerationInput(prompt: description)
+        let generationIput = GenerationInput(prompt: description)
         Task {
-            if let data = generationInput.encodedData {
+            if let data = generationIput.encodedData {
                 do {
                     let response = try await apiService.fetchImages(with: data)
+                    for data in response.data {
+                        urls.append(data.url)
+                    }
+                    withAnimation {
+                        fetching.toggle()
+                    }
+                    for (index, url) in urls.enumerated() {
+                        dallEImages[index].uiImage = await apiService.loadImage(at: url)
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                    fetching.toggle()
+                }
+            }
+        }
+    }
+    
+    func fetchVariations() {
+        if let selectedImage {
+            fetching.toggle()
+            guard let imageData = selectedImage.pngData() else {
+                return
+            }
+            clearProperties()
+            Task {
+                do {
+                    let formdataFields: [String : Any] = ["n" : Constants.n,
+                                                          "size": Constants.imageSize]
+                    let response = try await apiService.getVariations(formDataField: formdataFields,
+                                                                      fieldName: "image",
+                                                                      fileName: "Selected Image",
+                                                                      fileData: imageData)
                     for data in response.data {
                         urls.append(data.url)
                     }
