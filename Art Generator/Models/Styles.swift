@@ -20,7 +20,7 @@ enum ImageStyle: String, CaseIterable {
     case surrealism
     
     var description: String {
-        self != .none ? "an image in the style of " + self.rawValue + " " : ""
+        self != .none ? "An image in the style of " + self.rawValue + " " : ""
     }
 }
 

@@ -34,6 +34,10 @@ struct DALLEImagesView: View {
                     }
                     if vm.urls.isEmpty {
                         Text("The more descriptive you can be, the better")
+                            .padding(.trailing, 30.0)
+                            .padding(.bottom, 10.0)
+                            .padding(.top, 5.0)
+                            
                         TextField("Image Description....",
                                   text: $vm.prompt,
                                   axis: .vertical)
@@ -77,7 +81,7 @@ struct DALLEImagesView: View {
                             .padding()
                         HStack {
                             if vm.selectedImage != nil {
-                                Button("Get Variation") {
+                                Button("Get Variations") {
                                     vm.fetchVariations()
                                 }
                             }

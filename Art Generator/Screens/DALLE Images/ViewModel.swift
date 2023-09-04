@@ -22,8 +22,8 @@ class ViewModel: ObservableObject {
     @Published var showAlert = false
     
     var description: String {
-        let characteristics = imageStyle.description + imageMedium.description + artist.description
-        return prompt + (!characteristics.isEmpty ? "\n- " + characteristics : "")
+        //let characteristics = imageStyle.description + imageMedium.description + artist.description
+        return prompt // + (!characteristics.isEmpty ? "\n" + characteristics : "")
     }
     
     let apiService = APIService()
